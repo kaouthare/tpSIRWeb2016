@@ -11,7 +11,7 @@ function DnD(canvas, interactor) {
 	this.boutonPressee=false; //un boolean pour savoir si le bouton est pressed ou pas
 
 	// Developper les 3 fonctions g√©rant les √©v√©nements
-	this.maFctGÈrantLaPression= function(evt) {
+	this.maFctGerantLaPression= function(evt) {
         if(this.boutonPressee==false) {
             this.boutonPressee=true;
             this.xI = getMousePosition(canvas, evt).x;
@@ -27,7 +27,7 @@ function DnD(canvas, interactor) {
         }
     }.bind(this) ;
 
-    this.maFctGÈrantLeDÈplacement=function(evt) {
+    this.maFctGerantLeDeplacement=function(evt) {
       if(this.boutonPressee==true){
           this.xF=getMousePosition(canvas,evt).x;
           this.yF=getMousePosition(canvas,evt).y;
@@ -40,7 +40,7 @@ function DnD(canvas, interactor) {
       }
     }.bind(this);
 
-    this.maFctGÈrantLeRel‚chement=function(evt) {
+    this.maFctGerantLeRelachement=function(evt) {
     
         /*console.log("********Relachement**********");*/
         console.log("x initial"+this.xI);
@@ -59,9 +59,9 @@ function DnD(canvas, interactor) {
     }.bind(this) ;
 	// Associer les fonctions pr√©c√©dentes aux √©v√®nements du canvas.
 	
-	 canvas.addEventListener('mousedown', this.maFctGÈrantLaPression, false);
- 	 canvas.addEventListener('mousemove', this.maFctGÈrantLeDÈplacement, false);
-  	 canvas.addEventListener('mouseup', this.maFctGÈrantLeRel‚chement, false);
+	 canvas.addEventListener('mousedown', this.maFctGerantLaPression, false);
+ 	 canvas.addEventListener('mousemove', this.maFctGerantLeDeplacement, false);
+  	 canvas.addEventListener('mouseup', this.maFctGerantLeRelachement, false);
 };
 
 
