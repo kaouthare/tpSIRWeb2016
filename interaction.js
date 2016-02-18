@@ -4,13 +4,59 @@
 function DnD(canvas, interactor) {
 
 	// D√©finir ici les attributs de la 'classe'
-	this.xI = 0;
-	this.yI= 0;
-	this.xF= 0;
-	this.yF= 0; 
+	this.xI = 0; //le X initial
+	this.yI= 0; //le Y initial
+	this.xF= 0; //le X final
+	this.yF= 0; //le Y final
+	this.boutonPressee=false; //un boolean pour savoir si le bouton est pressed ou pas
 
 	// Developper les 3 fonctions g√©rant les √©v√©nements
+	this.maFctGÈrantLaPression= function(evt) {
+        if(this.boutonPressee==false) {
+            this.boutonPressee=true;
+            this.xI = getMousePosition(canvas, evt).x;
+            this.yI = getMousePosition(canvas, evt).y;
+            this.xF= getMousePosition(canvas,evt).x;
+            this.yF= getMousePosition(canvas,evt).y;
+            
+            /*  console.log("********Pression**********"); affichage dela valeur des points de la pression sur la console*/
+            console.log("x initial"+this.xI);
+            console.log("y initial"+this.yI);
+            console.log("x final"+this.xF);
+            console.log("y final"+this.yF);
+        }
+    }.bind(this) ;
 
+    this.maFctGÈrantLeDÈplacement=function(evt) {
+      if(this.boutonPressee==true){
+          this.xF=getMousePosition(canvas,evt).x;
+          this.yF=getMousePosition(canvas,evt).y;
+         
+          /*console.log("********Mouvement**********");*/
+          console.log("x initial"+this.xI);
+          console.log("y initial"+this.yI);
+          console.log("x final"+this.xF);
+          console.log("y final"+this.yF);
+      }
+    }.bind(this);
+
+    this.maFctGÈrantLeRel‚chement=function(evt) {
+    
+        /*console.log("********Relachement**********");*/
+        console.log("x initial"+this.xI);
+        console.log("y initial"+this.yI);
+        console.log("x final"+this.xF);
+        console.log("y final"+this.yF);
+        if(this.boutonPressee==true){
+            this.boutonPressee=false;
+            
+            //RÈinitialisation des coordonnÈes pour le drop 
+            this.xI = 0;
+            this.yI =0;
+            this.xF = 0;
+            this.yF =0;
+      }
+    }.bind(this) ;
 	// Associer les fonctions pr√©c√©dentes aux √©v√®nements du canvas.
 };
 
