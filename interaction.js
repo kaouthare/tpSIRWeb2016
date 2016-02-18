@@ -58,6 +58,10 @@ function DnD(canvas, interactor) {
       }
     }.bind(this) ;
 	// Associer les fonctions pr√©c√©dentes aux √©v√®nements du canvas.
+	
+	 canvas.addEventListener('mousedown', this.maFctGÈrantLaPression, false);
+ 	 canvas.addEventListener('mousemove', this.maFctGÈrantLeDÈplacement, false);
+  	 canvas.addEventListener('mouseup', this.maFctGÈrantLeRel‚chement, false);
 };
 
 
