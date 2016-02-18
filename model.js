@@ -6,6 +6,14 @@
 function Drawing() {
     //Déclarer un array
     this.forme = new Array();
+    
+    this.addForme = function(form){
+    this.forme.push(form);
+    };
+    
+    this.removeForme = function(index){
+    this.forme.splite(index,1);
+    };
 };
 
 
