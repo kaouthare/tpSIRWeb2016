@@ -22,7 +22,7 @@ Line.prototype.paint = function(ctx) {
 Drawing.prototype.paint = function(ctx) {
     ctx.fillStyle = '#F0F0F0'; // changer la couleur du background 
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    this.forme.forEach(function(eltDuTableau) {
+    this.getForms().forEach(function(eltDuTableau) {
         
         eltDuTableau.paint(ctx);
     });
