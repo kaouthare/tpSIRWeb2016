@@ -35,10 +35,10 @@ function DnD(canvas, Pencil) {
 
           /*console.log("********Mouvement**********");*/
 
-          /*console.log("x initial"+this.xI);
+          console.log("x initial"+this.xI);
           console.log("y initial"+this.yI);
           console.log("x final"+this.xF);
-          console.log("y final"+this.yF);*/
+          console.log("y final"+this.yF);
          Pencil.onInteractionUpdate(this);
       }
     }.bind(this);
@@ -46,10 +46,10 @@ function DnD(canvas, Pencil) {
     this.maFctGerantLeRelachement=function(evt) {
     
         /*console.log("********Relachement**********");*/
-      /*  console.log("x initial"+this.xI);
+       console.log("x initial"+this.xI);
         console.log("y initial"+this.yI);
         console.log("x final"+this.xF);
-        console.log("y final"+this.yF);*/
+        console.log("y final"+this.yF);
         if(this.boutonPressee==true){
             this.boutonPressee=false;
           Pencil.onInteractionEnd(this);

@@ -4,20 +4,23 @@
 
 //Class Drawing
 function Drawing() {
-    //Déclarer un array
+    //Dï¿½clarer un array
     this.forme = new Array();
     
-    this.addForme = function(form){
-    this.forme.push(form);
+    this.addForme = function(forme){
+    this.forme.push(forme);
     };
     
     this.removeForme = function(index){
     this.forme.splite(index,1);
     };
+    /*
+    this.removeForme = function(forme){
+        this.forme.pop(forme);*/
 };
 
 
-//Classe forme d'ou va hériter les formes : réctangle et ligne
+//Classe forme d'ou va hï¿½riter les formes : rï¿½ctangle et ligne
 function forme(epaisseur, couleur) {
     this.epaisseur=epaisseur;
     this.couleur=couleur;
