@@ -14,17 +14,17 @@ function DnD(canvas, Pencil) {
 	this.maFctGerantLaPression= function(evt) {
         if(this.boutonPressee==false) {
             this.boutonPressee=true;
-            this.xI = getMousePosition(canvas, evt).x;
-            this.yI = getMousePosition(canvas, evt).y;
-            this.xF= getMousePosition(canvas,evt).x;
-            this.yF= getMousePosition(canvas,evt).y;
+            this.xI = getMousePosition(canvas,evt).x;
+            this.yI = getMousePosition(canvas,evt).y;
+            this.xF = getMousePosition(canvas,evt).x;
+            this.yF = getMousePosition(canvas,evt).y;
             
             /*  console.log("********Pression**********"); affichage dela valeur des points de la pression sur la console*/
-            console.log("x initial"+this.xI);
+            /*console.log("x initial"+this.xI);
             console.log("y initial"+this.yI);
             console.log("x final"+this.xF);
-            console.log("y final"+this.yF);
-            Pencil.onInteractionStart(this);
+            console.log("y final"+this.yF);*/
+          Pencil.onInteractionStart(this);
         }
     }.bind(this) ;
 
@@ -32,26 +32,28 @@ function DnD(canvas, Pencil) {
       if(this.boutonPressee==true){
           this.xF=getMousePosition(canvas,evt).x;
           this.yF=getMousePosition(canvas,evt).y;
-         Pencil.onInteractionUpdate(this);
+
           /*console.log("********Mouvement**********");*/
-          console.log("x initial"+this.xI);
+
+          /*console.log("x initial"+this.xI);
           console.log("y initial"+this.yI);
           console.log("x final"+this.xF);
-          console.log("y final"+this.yF);
+          console.log("y final"+this.yF);*/
+         Pencil.onInteractionUpdate(this);
       }
     }.bind(this);
 
     this.maFctGerantLeRelachement=function(evt) {
     
         /*console.log("********Relachement**********");*/
-        console.log("x initial"+this.xI);
+      /*  console.log("x initial"+this.xI);
         console.log("y initial"+this.yI);
         console.log("x final"+this.xF);
-        console.log("y final"+this.yF);
+        console.log("y final"+this.yF);*/
         if(this.boutonPressee==true){
             this.boutonPressee=false;
-             Pencil.onInteractionEnd(this);
-            //Réinitialisation des coordonnées pour le drop 
+          Pencil.onInteractionEnd(this);
+            //Rï¿½initialisation des coordonnï¿½es pour le drop 
             this.xI = 0;
             this.yI =0;
             this.xF = 0;

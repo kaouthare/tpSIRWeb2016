@@ -13,13 +13,13 @@ function Pencil(ctx, drawing, canvas) {
 
 	// ImplÃ©mentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
  this.onInteractionStart=function(DnD){
- 	//recuperer les boutons depuis canvas.html afin de verifier l'état des boutons
+ 	//recuperer les boutons depuis canvas.html afin de verifier l'ï¿½tat des boutons
  	var butRect= document.getElementById('butRect');
  	var butLine= document.getElementById('butLine');
  	var spinnerWidth= document.getElementById('spinnerWidth');
  	var colour= document.getElementById('colour');
  	
- 	// leur donner les valeurs définie dans canvs.html
+ 	// leur donner les valeurs dï¿½finie dans canvs.html
  	this.currLineWidth=spinnerWidth.value;
  	this.currColour= colour.value;
  	
@@ -30,13 +30,13 @@ function Pencil(ctx, drawing, canvas) {
 	
 		this.currEditingMode=editingMode.line;
  	}else{
- 	console.log('la selection n'est pas valide');
+ 	console.log('la selection nest pas valide');
  	}
  	
- 	// selon la frome selectionnée on va créer les formes
+ 	// selon la frome selectionnï¿½e on va crï¿½er les formes
  	switch(this.currEditingMode){
  		case editingMode.rect:{
- 		//si c'est un rectangle : en créer un 
+ 		//si c'est un rectangle : en crï¿½er un 
  		var larg = DnD.xF-DnD.xI;
  		var haut =DnD.yF-DnD.yI;
  		this.currentShape = new Rectangle(DnD.xI, DnD.yI, larg, haut, this.currLineWidth, this.currColour);
@@ -48,11 +48,12 @@ function Pencil(ctx, drawing, canvas) {
 				break;
 			}
 		default:
-				console.log("la forme n'existe pas.");
+				console.log("la forme nexiste pas.");
  	}
  	
  
  }.bind(this);
+
  
  this.onInteractionUpdate= function(DnD) {
 		if(butRect.checked) {
@@ -65,7 +66,7 @@ function Pencil(ctx, drawing, canvas) {
 			this.currentShape = new Line(DnD.xI, DnD.yI, DnD.xF, DnD.yF, this.currLineWidth, this.currColour);
 		
 		}else{
-			console.log('La sélection est invalide');
+			console.log('La selection est invalide');
 		}
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		drawing.paint(ctx);
@@ -83,16 +84,16 @@ function Pencil(ctx, drawing, canvas) {
 			this.currentShape = new Line(DnD.xI, DnD.yI, DnD.xF, DnD.yF, this.currLineWidth, this.currColour);
 		
 		}else{
-			console.log('La sélection est invalide');
+			console.log('La selection est invalide');
 		}
 		// reinitialiser le canvas
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		//Ajout de la forme à la liste de dessins du canvas
-		drawing.addForm(this.currentShape);
+		//Ajout de la forme ï¿½ la liste de dessins du canvas
+		drawing.addForme(this.currentShape);
 		//la liste de dessins du canvas
 		drawing.paint(ctx, canvas);
-        //Mise à jour de la liste de formes 
-        drawing.updateShapeList(this.currentShape);
+        //Mise ï¿½ jour de la liste de formes
+       // drawing.updateShapeList(this.currentShape);
 	}.bind(this);
 
 
