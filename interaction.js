@@ -14,45 +14,49 @@ function DnD(canvas, Pencil) {
 	this.maFctGerantLaPression= function(evt) {
         if(this.boutonPressee==false) {
             this.boutonPressee=true;
+            //prendre les positions de la sourie
             this.xI = getMousePosition(canvas,evt).x;
             this.yI = getMousePosition(canvas,evt).y;
             this.xF = getMousePosition(canvas,evt).x;
             this.yF = getMousePosition(canvas,evt).y;
             
-            /*  console.log("********Pression**********"); affichage dela valeur des points de la pression sur la console*/
+            /*  console.log("**Pression**"); affichage dela valeur des points de la pression sur la console*/
             /*console.log("x initial"+this.xI);
             console.log("y initial"+this.yI);
             console.log("x final"+this.xF);
             console.log("y final"+this.yF);*/
-          Pencil.onInteractionStart(this);
+
+            Pencil.onInteractionStart(this);
         }
     }.bind(this) ;
 
     this.maFctGerantLeDeplacement=function(evt) {
       if(this.boutonPressee==true){
+      //position de la sourie
           this.xF=getMousePosition(canvas,evt).x;
           this.yF=getMousePosition(canvas,evt).y;
 
-          /*console.log("********Mouvement**********");*/
+          /*console.log("**Mouvement**"); affichage sur la console de la valeur de la position de la sourie*/
 
           console.log("x initial"+this.xI);
           console.log("y initial"+this.yI);
           console.log("x final"+this.xF);
           console.log("y final"+this.yF);
+            //appel de la methode
          Pencil.onInteractionUpdate(this);
       }
     }.bind(this);
 
     this.maFctGerantLeRelachement=function(evt) {
     
-        /*console.log("********Relachement**********");*/
+        /*console.log("*Relachement**");*/
        console.log("x initial"+this.xI);
         console.log("y initial"+this.yI);
         console.log("x final"+this.xF);
         console.log("y final"+this.yF);
         if(this.boutonPressee==true){
             this.boutonPressee=false;
-          Pencil.onInteractionEnd(this);
+            Pencil.onInteractionEnd(this);
             //R�initialisation des coordonn�es pour le drop 
             this.xI = 0;
             this.yI =0;

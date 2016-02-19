@@ -12,7 +12,7 @@ function Drawing() {
     };
     
     this.removeForme = function(index){
-    this.forme.splite(index,1);
+    this.forme.splice(index,1);
     };
     /*
     this.removeForme = function(forme){
