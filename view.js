@@ -1,18 +1,24 @@
 
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
 
-
+//fonction pour dessiner un rectangle
 Rectangle.prototype.paint = function(ctx) {
-    
+    //choisir l'epaisseur
     ctx.lineWidth=this.epaisseur;
+    //choisir la couleur
     ctx.strokeStyle=this.couleur;
+    //dessiner avec les orgx, orgY, larg, hauteur : les attributs necessaires
+    ctx.beginPath() ;
     ctx.rect(this.orgX, this.orgY, this.larg, this.haut);
     ctx.stroke();
 };
 
 Line.prototype.paint = function(ctx) {
+    //epaisseur de la line
     ctx.lineWidth=this.epaisseur;
+    //couleur line
     ctx.strokeStyle=this.couleur;
+    //debut
     ctx.beginPath();
     ctx.moveTo(this.xA, this.yA);
     ctx.lineTo(this.xB, this.yB);
@@ -20,7 +26,7 @@ Line.prototype.paint = function(ctx) {
 };
 
 Drawing.prototype.paint = function(ctx) {
-    ctx.fillStyle = '#F0F0F0'; // changer la couleur du background 
+    ctx.fillStyle = '#F0F0F0'; // changer la couleur du background
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     this.forme.forEach(function(eltDuTableau) {
         
@@ -83,7 +89,6 @@ Drawing.prototype.updateShapeList = function(forme){
     	//ajouter l'element li a note liste myshape
     	myShapeList.appendChild(li);
 
-
 };
 
 Drawing.prototype.deleteShape = function(id){
@@ -92,26 +97,11 @@ Drawing.prototype.deleteShape = function(id){
 	var index= $(li).index();
     //supprimer l'element qui contient le bouton et les informations de la forme
     li.remove();
+    //Supprimer la forme
     this.removeForme(index);
+    //supprimer le contenu du canvas
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//redessiner
 	drawing.paint(ctx);
-
-    /*
-
-    Drawing.prototype.removeShapeFromList = function(index) {
-
-        this.removeForm(index);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawing.paint(ctx, canvas);
-        var shapeList = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        while( shapeList.firstChild) {
-            shapeList.removeChild( shapeList.firstChild);
-        }
-        for(var x= 0, nb=drawing.forms.length;x<nb;x++){
-            drawing.updateShapeList(drawing.forms[x]);
-        }
-    }
-
-    */
 
 };

@@ -1,8 +1,11 @@
 
+//recuperer avec l id le canvas
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
+//la largeur du canvas
 canvas.width=800
+//la hauteur du canvas
 canvas.height=600
 
 // Code temporaire pour tester le DnD

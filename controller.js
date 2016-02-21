@@ -5,7 +5,9 @@ var editingMode = { rect: 0, line: 1 };
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.line;
 	this.currLineWidth = 5;
+	//coueur
 	this.currColour = '#000000';
+	//forme
 	this.currentShape = 0;
 
 	// Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
@@ -93,7 +95,7 @@ function Pencil(ctx, drawing, canvas) {
 		}else{
 			console.log('La selection est invalide');
 		}
-		// lon vide le canvas
+		// on vide le canvas
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		//Ajout de la forme dans la liste de dessins du canvas
 		drawing.addForme(this.currentShape);

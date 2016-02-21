@@ -37,11 +37,11 @@ function DnD(canvas, Pencil) {
           this.yF=getMousePosition(canvas,evt).y;
 
           /*console.log("**Mouvement**"); affichage sur la console de la valeur de la position de la sourie*/
-
+/*
           console.log("x initial"+this.xI);
           console.log("y initial"+this.yI);
           console.log("x final"+this.xF);
-          console.log("y final"+this.yF);
+          console.log("y final"+this.yF);*/
             //appel de la methode
          Pencil.onInteractionUpdate(this);
       }
@@ -50,10 +50,10 @@ function DnD(canvas, Pencil) {
     this.maFctGerantLeRelachement=function(evt) {
     
         /*console.log("*Relachement**");*/
-       console.log("x initial"+this.xI);
-        console.log("y initial"+this.yI);
-        console.log("x final"+this.xF);
-        console.log("y final"+this.yF);
+              /*console.log("x initial"+this.xI);
+               console.log("y initial"+this.yI);
+               console.log("x final"+this.xF);
+               console.log("y final"+this.yF);*/
         if(this.boutonPressee==true){
             this.boutonPressee=false;
             Pencil.onInteractionEnd(this);
@@ -64,8 +64,8 @@ function DnD(canvas, Pencil) {
             this.yF =0;
       }
     }.bind(this) ;
+
 	// Associer les fonctions précédentes aux évènements du canvas.
-	
 	 canvas.addEventListener('mousedown', this.maFctGerantLaPression, false);
  	 canvas.addEventListener('mousemove', this.maFctGerantLeDeplacement, false);
   	 canvas.addEventListener('mouseup', this.maFctGerantLeRelachement, false);
