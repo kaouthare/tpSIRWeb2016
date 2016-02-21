@@ -69,7 +69,7 @@ Drawing.prototype.updateShapeList = function(forme){
     span.setAttribute('class','glyphicon glyphicon-remove-sign');
     //ajouter le span au bouton
     bouton.appendChild(span);
-
+    //quand on click sur le bouton il nous dirige vers la fonction de suppression
      bouton.setAttribute('onClick', 'drawing.deleteShape('+id+')');
     //ajouter le bouto à li
     li.appendChild(bouton);
